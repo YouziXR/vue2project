@@ -17,3 +17,7 @@
 - `./src/App.vue`，这个文件使用了`<router-view>`这个组件，是全局注册的所以可以直接使用，router事实上是Vue官方的插件，在`./src/router/index.js`这个文件中引入了`HelloWorld`组件并注册，意思是在router中注册了，但`router-view`是全局注册的，所以使用`router-view`相当于使用`HelloWorld`组件。
 - `./src/components/HelloWorld.vue`这个文件是一个单文件组件，由router引入，然后在App里使用。
 - 一般来说都会自己写新的组件，写好一个`.vue`文件之后在App里直接引入，然后用局部注册的方式注册组件，最后在`<template></template>`使用这个组件。
+
+### 单文件组件
+
+单文件组件以`.vue`为后缀，模板语法可以是ES6 || CommonJS || typescript等等，有Babel之后都能编译成ES5；一般的单文件组件形如![vue单文件组件](https://cn.vuejs.org/images/vue-component.png)
