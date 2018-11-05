@@ -23,6 +23,6 @@
 	#content {
 		/*width: 30%;*/
 		margin: auto;
-		border: 2px solid #ccc;
+		/*border: 2px solid #ccc;*/
 	}
 </style>

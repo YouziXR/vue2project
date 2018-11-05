@@ -2,10 +2,11 @@
   <div id="app">
     <img src="./assets/logo.png">
     <!-- <router-view/> -->
-    <myApp></myApp>
-    <HelloWorld></HelloWorld>
+    <!-- <myApp></myApp> -->
+    <my-app></my-app> 
+    <hello-world></hello-world>
     <div id="navbar">
-      <button v-for="page in pages" :key="page" @click="changePage(page)" class="page-button">
+      <button v-for="page in pages" :key="page" @click="changePage(page)" :class="['page-button', { active: currentPage === page }]">
         {{ page }}
       </button>
     </div>
@@ -70,8 +71,15 @@ export default {
   border: 1px solid #ccc;
   background: #f0f0f0;
   border-radius: 3px 3px 0 0;
-  box-shadow: 0px 0px;
+  /*box-shadow: 0px 0px;*/
+  margin-left: -1px;
   padding: 6px 10px
+}
+.page-button.active {
+  background: #e0e0e0;
+}
+.page-button:hover {
+  background: #e0e0e0;
 }
 .page-content {
   text-align: left;
