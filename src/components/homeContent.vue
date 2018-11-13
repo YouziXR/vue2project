@@ -3,9 +3,10 @@
     <h3>
 		{{ articles.title }}
 	</h3>
-    <!-- <h4>
-		{{ articles.author }}
-	</h4> -->
+    <h4>
+		{{ articles.author.firstAuthor }}
+		<!-- {{ obj.nothing }} -->
+	</h4>
     <h5>
 		{{ articles.body }}
 	</h5>
@@ -14,8 +15,10 @@
 <script type="text/javascript">
 export default {
   name: 'homeContent',
+  // props: ['title', 'body', 'author', 'obj'],
   props: {
-    articles: Object
+  	// obj: Object,
+  	articles: Object
   }
 }
 
@@ -23,3 +26,4 @@ export default {
 <style type="text/css">
 	
 </style>
+

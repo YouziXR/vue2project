@@ -1,7 +1,8 @@
 <template>
 	<div id="content">
-		{{ content }}
-		
+		<!-- {{ content }} -->
+		<homeContent v-bind:articles="articles"></homeContent>
+
 	</div>
 </template>
 
@@ -16,7 +17,18 @@
 		},
 		data() {
 			return {
-				content: 'this is home page content'
+				content: 'this is home page content',
+				articles: {
+					title: 'first title',
+					body: 'first body',
+					author: {
+						firstAuthor: 'Steve',
+						secondAuthor: 'Steven'
+					}
+				},
+				/*obj: {
+					nothing: 'nothing'
+				}*/
 			}
 		}
 	}
