@@ -21,3 +21,18 @@
 ### 单文件组件
 
 单文件组件以`.vue`为后缀，模板语法可以是ES6 || CommonJS || typescript等等，有Babel之后都能编译成ES5；一般的单文件组件形如![vue单文件组件](https://cn.vuejs.org/images/vue-component.png)
+
+### 组件间通信
+
+父子组件通信，父组件传值给子组件，`props`，；
+
+子父组件通信，子组件传值给父组件，`$emit()`；
+
+其他组件通信，`$emit() + $on()`；借助一个空的`vue`实例，当做中央事件总线，例：新建`bus.js`文件
+
+    import Vue from 'vue'
+    export default new Vue();
+
+需要发出通信请求的组件调用`Bus.$emit('functionName', args)`方法，触发接受请求组件的事件，接受组件在`mounted`函数中调用`Bus.$on('functionName', function(args){})`；通俗点说就是组件触发了某个事件，这个事件函数又触发了另一个组件的事件函数，从而实现组件间通信。
+
+用`vuex`的方法还没学。
