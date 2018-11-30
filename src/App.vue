@@ -2,8 +2,10 @@
   <div id="app">
     <img src="./assets/logo.png">
     <!-- <router-view/> -->
-    <myApp></myApp>
-    <hello-world></hello-world>
+    <!-- <myApp></myApp> -->
+    <hello-world>
+      ?????????
+    </hello-world>
     <pages></pages>
   </div>
 </template>

@@ -35,4 +35,52 @@
 
 需要发出通信请求的组件调用`Bus.$emit('functionName', args)`方法，触发接受请求组件的事件，接受组件在`mounted`函数中调用`Bus.$on('functionName', function(args){})`；通俗点说就是组件触发了某个事件，这个事件函数又触发了另一个组件的事件函数，从而实现组件间通信。
 
-用`vuex`的方法还没学。
+### slot标签
+
+`<slot>`作为承载分发内容的出口，
+
+	<my-component>
+		??????
+	</my-component>
+
+	<template>
+		<div>
+			<span></span>
+		</div>
+	</template>
+
+上面的例子是不会在HTML里渲染`??????`的，因为需要在`my-component`模板中加入`<slot>`内容分发元素。
+
+形如：
+	<my-component>
+		??????
+	</my-component>
+
+	<template>
+		<div>
+			<span></span>
+		</div>
+		<slot></slot>
+	</template>
+
+另外可以给`<slot>`元素添加特殊属性`name`，这个属性可以用来定义额外的插槽，模板：
+
+	<my-component>
+		<template slot="header">??????</template>
+		<div slot="footer">;;;;;;</div>
+	</my-component>
+
+	<template>
+		<slot name="header"></slot>
+		<div>
+			<span></span>
+		</div>
+		<slot name="footer"></slot>
+	</template>
+
+- 注意`<slot>`元素是写在子组件模板中的，而要传入模板的内容是写在外部元素中的；
+- 具有`name`属性的`slot`元素是用来传入特定内容的，在外部元素中要添加`slot="name"`；
+- 可以保留一个不具有`name`属性的`slot`元素，用来作为未匹配到插槽的其余内容的出口；
+- 还可以为插槽添加默认的内容，在子组件模板的`slot`元素里添加任意的默认内容，如果外部组件传入了内容，默认内容就会被覆盖；
+- 很重要的一点，插槽内容的作用域是该插槽元素`<slot></slot>`所在的作用域，但不能访问外部的作用域；父子组件模板的所有内容都是在各自的作用域内进行编译的。
+
